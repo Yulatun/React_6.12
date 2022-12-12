@@ -1,0 +1,47 @@
+.formUserData {
+  height: 1000px;
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  padding: 2%;
+  border-radius: 5px;
+  margin: 20px 10% 10%;
+}
+
+input {
+  height: 30px;
+  border-radius: 5px;
+  margin-top: 2%;
+  margin-bottom: 4%;
+  justify-content: space-around;
+  border: solid #f0f0f0;
+}
+
+textarea {
+  border-radius: 5px;
+  margin-top: 2%;
+  margin-bottom: 4%;
+  justify-content: space-around;
+  border: solid #f0f0f0;
+  resize: none;
+}
+
+.reset {
+  width: 30%;
+}
+
+.reset:hover {
+  background-color: #b0b0b0;
+}
+.save {
+  width: 30%;
+  margin-left: 40%;
+}
+.save:hover {
+  background-color: #b0b0b0;
+}
+
+#userData {
+  background-color: #d0d0d0;
+  /* margin-left: 10%; */
+}
