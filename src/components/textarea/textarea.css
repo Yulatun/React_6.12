@@ -1,0 +1,12 @@
+.textarea-form {
+  border-radius: 5px;
+  margin-top: 2%;
+  margin-bottom: 4%;
+  justify-content: space-around;
+  border: solid #f0f0f0;
+  resize: none;
+}
+
+.textarea-form:focus {
+  outline: none;
+}
