@@ -10,7 +10,6 @@ class Input extends React.Component {
           type={this.props.type}
           className={this.props.className}
           placeholder={this.props.placeholder}
-          value={this.props.value}
         ></input>
       </>
     );

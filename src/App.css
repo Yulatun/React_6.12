@@ -1,10 +1,8 @@
-.main-field{
-  display:flex;
+.main-field {
+  height: 1200px;
+  width: 600px;
+  display: flex;
+  align-items: center;
   flex-direction: column;
-  align-self: center;
   margin: 10px 20px 10px 20px;
-}
-
-.main-head{
- margin-left: 30px 
 }
