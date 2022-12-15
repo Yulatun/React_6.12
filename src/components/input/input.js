@@ -1,5 +1,5 @@
 import React from 'react';
-import './input.css'
+import './input.css';
 class Input extends React.Component {
   render() {
     return (
@@ -10,7 +10,7 @@ class Input extends React.Component {
           type={this.props.type}
           className={this.props.className}
           placeholder={this.props.placeholder}
-        ></input>
+        />
       </>
     );
   }
