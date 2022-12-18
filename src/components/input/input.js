@@ -8,8 +8,10 @@ class Input extends React.Component {
         <input
           id={this.props.htmlFor}
           type={this.props.type}
-          className={this.props.className}
           placeholder={this.props.placeholder}
+          onChange={this.props.onChange}
+          className={this.props.className}
+          value={this.props.value}
         />
       </>
     );
