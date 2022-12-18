@@ -278,13 +278,13 @@ class Form extends React.Component {
             text='Отмена'
             type='reset'
             onClick={this.allReset.bind(this)}
-          ></Button>
+          />
           <Button
             className='save'
             text='Сохранить'
             type='submit'
             onClick={this.contactSubmit.bind(this)}
-          ></Button>
+          />
         </div>
       </form>
     );
