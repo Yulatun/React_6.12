@@ -4,33 +4,16 @@ import TextArea from '../textarea/textarea';
 import HelperText from '../helperText/helperText';
 import Button from '../button/button';
 import DisplayCounter from '../displayCounter/displayCounter';
+import {
+  notEmptyValidator,
+  notEmptyDateValidator,
+  firstCapitalLetterValidator,
+  letterOfAlphabetValidator,
+  webSiteValidator,
+  charactersCounter,
+  telephoneValidator,
+} from './validators';
 import './form.css';
-
-const notEmptyValidator = (value) =>
-  value ? '' : 'Поле пустое. Заполните пожалуйста';
-
-const notEmptyDateValidator = (value) =>
-  value ? '' : 'Пожалуйста, выберете дату';
-
-const firstCapitalLetterValidator = (value) =>
-  value[0].toUpperCase() === value[0]
-    ? ''
-    : 'Первая буква должна быть заглавной';
-const letterOfAlphabetValidator = (value) =>
-  value.match(/^[а-яА-ЯёЁa-zA-Z ]+$/) ? '' : 'Используйте буквы';
-
-const webSiteValidator = (value) =>
-  value.startsWith('https://')
-    ? ''
-    : 'поле «Сайт» должно начинаться с https:// ';
-
-const charactersCounter = (value) =>
-  value.length >= 600 ? '«Превышен лимит символов в поле»' : '';
-
-const telephoneValidator = (value) =>
-  value.match(/^[0-9]-[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]$/)
-    ? ''
-    : 'Телефон должен быть в формате: 7-7777-77-77';
 
 class Form extends React.Component {
   constructor(props) {
@@ -99,7 +82,7 @@ class Form extends React.Component {
       this.handleValidation(
         name,
         this.validation[name],
-        this.state.fields[name]
+        this.state.fields[name].trim()
       )
     );
     if (Object.values(this.state.errors).every((e) => !e)) {
