@@ -17,7 +17,7 @@ const firstCapitalLetterValidator = (value) =>
     ? ''
     : 'Первая буква должна быть заглавной';
 const letterOfAlphabetValidator = (value) =>
-  value.match(/^[A-Za-z]+$/) ? '' : 'Используйте буквы';
+  value.match(/^[а-яА-ЯёЁa-zA-Z ]+$/) ? '' : 'Используйте буквы';
 
 const webSiteValidator = (value) =>
   value.startsWith('https://')
@@ -25,7 +25,7 @@ const webSiteValidator = (value) =>
     : 'поле «Сайт» должно начинаться с https:// ';
 
 const charactersCounter = (value) =>
-  value.trim().length >= 600 ? '«Превышен лимит символов в поле»' : '';
+  value.length >= 600 ? '«Превышен лимит символов в поле»' : '';
 
 const telephoneValidator = (value) =>
   value.match(/^[0-9]-[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]$/)
@@ -110,9 +110,10 @@ class Form extends React.Component {
   handleChange(fieldName, validators, e) {
     let fields = this.state.fields;
     let newValue = e.target.value;
-    fields[fieldName] = newValue.trim();
+    fields[fieldName] = newValue;
+    const newValueCutSpace = newValue.trim();
     this.setState({ fields });
-    this.handleValidation(fieldName, validators, newValue);
+    this.handleValidation(fieldName, validators, newValueCutSpace);
   }
 
   allReset() {
@@ -147,7 +148,7 @@ class Form extends React.Component {
             this.validation.lastName
           )}
         />
-        <HelperText value={this.state.errors.lastName}/>
+        <HelperText value={this.state.errors.lastName} />
 
         <Input
           title='Дата Рождения'
@@ -157,7 +158,7 @@ class Form extends React.Component {
           onChange={this.handleChange.bind(this, 'date', this.validation.date)}
           value={this.state.fields.date}
         />
-        <HelperText value={this.state.errors.date}/>
+        <HelperText value={this.state.errors.date} />
 
         <Input
           title='Телефон'
@@ -168,7 +169,7 @@ class Form extends React.Component {
           onChange={this.handleChange.bind(this, 'tel', this.validation.tel)}
           value={this.state.fields.tel}
         ></Input>
-        <HelperText value={this.state.errors.tel}/>
+        <HelperText value={this.state.errors.tel} />
 
         <Input
           title='Сайт'
@@ -178,7 +179,7 @@ class Form extends React.Component {
           onChange={this.handleChange.bind(this, 'site', this.validation.site)}
           value={this.state.fields.site}
         />
-        <HelperText value={this.state.errors.site}/>
+        <HelperText value={this.state.errors.site} />
 
         <TextArea
           rows='7'
@@ -197,13 +198,13 @@ class Form extends React.Component {
 
         <div className='textarea-text-helpers-box'>
           {this.state.errors.about ? (
-            <HelperText value={this.state.errors.about}/>
+            <HelperText value={this.state.errors.about} />
           ) : (
             <DisplayCounter
               className='box-display-letters-counter'
               restNumber={
                 maxNumberOfCharactersInTextArea -
-                (this.state.fields.about || '').length
+                (this.state.fields.about.trim() || '').length
               }
               allNumber={maxNumberOfCharactersInTextArea}
               text={'Осталось символов:'}
@@ -226,20 +227,20 @@ class Form extends React.Component {
         />
         <div className='textarea-text-helpers-box'>
           {this.state.errors.stack ? (
-            <HelperText value={this.state.errors.stack}/>
+            <HelperText value={this.state.errors.stack} />
           ) : (
             <DisplayCounter
               className='box-display-letters-counter'
               restNumber={
                 maxNumberOfCharactersInTextArea -
-                (this.state.fields.stack || '').length
+                (this.state.fields.stack.trim() || '').length
               }
               allNumber={maxNumberOfCharactersInTextArea}
               text={'Осталось символов:'}
             />
           )}
         </div>
-        
+
         <TextArea
           rows='7'
           title='Описание последнего проекта'
@@ -256,13 +257,13 @@ class Form extends React.Component {
         />
         <div className='textarea-text-helpers-box'>
           {this.state.errors.project ? (
-            <HelperText value={this.state.errors.project}/>
+            <HelperText value={this.state.errors.project} />
           ) : (
             <DisplayCounter
               className='box-display-letters-counter'
               restNumber={
                 maxNumberOfCharactersInTextArea -
-                (this.state.fields.project || '').length
+                (this.state.fields.project.trim() || '').length
               }
               allNumber={maxNumberOfCharactersInTextArea}
               text={'Осталось символов:'}
