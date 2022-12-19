@@ -9,7 +9,7 @@ class Navigation extends React.Component {
     super(props);
     this.state = { page: 'form', data: {} };
   }
-  ChangePage(data) {
+  changePage(data) {
     this.setState({ page: 'cv', data });
   }
   render() {
@@ -18,7 +18,7 @@ class Navigation extends React.Component {
         {this.state.page === 'form' ? (
           <div className='main-field'>
             <Heading text='Создание анкеты' className='main-head'></Heading>
-            <Form onChangePage={this.ChangePage.bind(this)} />
+            <Form onChangePage={this.changePage.bind(this)} />
           </div>
         ) : (
           <CV data={this.state.data} />

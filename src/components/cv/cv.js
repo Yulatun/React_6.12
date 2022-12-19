@@ -5,7 +5,6 @@ import './cv.css';
 
 class CV extends React.Component {
   render() {
-    console.log(this.props.data);
     return (
       <div className='main-cv-field'>
         <Heading
