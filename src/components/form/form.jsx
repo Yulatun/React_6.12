@@ -15,7 +15,7 @@ import {
 } from './validators';
 import './form.css';
 
-const Form = (props)=> {
+const Form = (props) => {
   const [fieldsState, setFieldsState] = useState({
     name: '',
     lastName: '',
@@ -66,8 +66,8 @@ const Form = (props)=> {
         break;
       }
     }
+    error[fieldName] = validationResult;
     let updateErrors = { ...error };
-    errors[fieldName] = validationResult;
     setErrors(updateErrors);
   };
 
@@ -89,6 +89,7 @@ const Form = (props)=> {
     let fieldsUpdate = { ...fields };
     const newValueCutSpace = newValue.trim();
     setFieldsState(fieldsUpdate);
+
     handleValidation(fieldName, validators, newValueCutSpace);
   };
 
@@ -210,7 +211,7 @@ const Form = (props)=> {
         htmlFor='project'
         maxLength={maxNumberOfCharactersInTextArea}
         className='textarea-form'
-        onChange={(e) => handleChange('project', fieldsState.project, e)}
+        onChange={(e) => handleChange('project', validation.project, e)}
         value={fieldsState.project}
       />
       <div className='textarea-text-helpers-box'>
@@ -245,6 +246,6 @@ const Form = (props)=> {
       </div>
     </form>
   );
-}
+};
 
 export default Form;
