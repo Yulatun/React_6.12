@@ -1,9 +1,7 @@
 import React from 'react';
 import './helperText.css';
-class HelperText extends React.Component {
-  render() {
-    return <div className='error-helper-text'>{this.props.value}</div>;
-  }
-}
+const HelperText = (props) => {
+  return <div className='error-helper-text'>{props.value}</div>;
+};
 
 export default HelperText;

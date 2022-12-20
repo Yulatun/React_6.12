@@ -1,14 +1,12 @@
 import React from 'react';
 import './displayCounter.css';
-class DisplayCounter extends React.Component {
-  render() {
+const DisplayCounter =(props)=> {
+  
     return (
-      <div className={this.props.className}>
-        {this.props.text}
-        {this.props.restNumber}/{this.props.allNumber}
+      <div className={props.className}>
+        {props.text}
+        {props.restNumber}/{props.allNumber}
       </div>
     );
-  }
 }
-
 export default DisplayCounter;
