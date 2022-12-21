@@ -8,11 +8,16 @@
   background-color: #d0d0d0;
 }
 
-.btn-block{
+.btn-block {
   margin: 10px 0;
-  display:flex;
-  justify-content:space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
+.textarea-form + .textarea-text-helpers-box .box-display-letters-counter { 
+  visibility: hidden;
+}
 
-
+.textarea-form:focus + .textarea-text-helpers-box .box-display-letters-counter {
+  visibility: visible;
+}
