@@ -1,7 +1,6 @@
-import React from 'react';
 import './textarea.css';
 
-const TextArea=(props)=> {
+const TextArea = (props) => {
   return (
     <>
       <label htmlFor={props.htmlFor}>{props.title} </label>
@@ -16,6 +15,6 @@ const TextArea=(props)=> {
       />
     </>
   );
-}
+};
 
 export default TextArea;

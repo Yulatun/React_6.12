@@ -1,6 +1,5 @@
-import React from 'react';
 import './input.css';
-const Input =(props)=> {
+const Input = (props) => {
   return (
     <>
       <label htmlFor={props.htmlFor}>{props.title}</label>
@@ -14,6 +13,6 @@ const Input =(props)=> {
       />
     </>
   );
-}
+};
 
 export default Input;

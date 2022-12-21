@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Form from '../form/form';
 import Heading from '../heading/heading';
 import CV from '../cv/cv';

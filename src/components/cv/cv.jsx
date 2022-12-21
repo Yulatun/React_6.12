@@ -1,4 +1,3 @@
-import React from 'react';
 import TextField from '../textField/textField';
 import Heading from '../heading/heading';
 import './cv.css';

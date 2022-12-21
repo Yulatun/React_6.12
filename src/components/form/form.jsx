@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Input from '../input/input';
 import TextArea from '../textarea/textarea';
 import HelperText from '../helperText/helperText';
@@ -13,30 +13,12 @@ import {
   charactersCounter,
   telephoneValidator,
 } from './validators';
+import { initialState, initialStateError } from './data';
 import './form.css';
 
 const Form = (props) => {
-  const [fieldsState, setFieldsState] = useState({
-    name: '',
-    lastName: '',
-    site: '',
-    about: '',
-    stack: '',
-    project: '',
-    date: '',
-    tel: '',
-  });
-  const [errors, setErrors] = useState({
-    name: '',
-    lastName: '',
-    site: '',
-    about: '',
-    stack: '',
-    project: '',
-    date: '',
-    tel: '',
-  });
-
+  const [fieldsState, setFieldsState] = useState(initialState);
+  const [errors, setErrors] = useState(initialStateError);
   const validation = {
     name: [
       notEmptyValidator,
@@ -57,7 +39,7 @@ const Form = (props) => {
   };
   const maxNumberOfCharactersInTextArea = 600;
   const handleValidation = (fieldName, validators, newValue) => {
-    let error = errors;
+    let error = { ...errors };
     let validationResult = '';
     for (let i = 0; i < validators.length; i++) {
       const v = validators[i];
@@ -67,8 +49,7 @@ const Form = (props) => {
       }
     }
     error[fieldName] = validationResult;
-    let updateErrors = { ...error };
-    setErrors(updateErrors);
+    setErrors(error);
   };
 
   const contactSubmit = (e) => {
@@ -83,19 +64,17 @@ const Form = (props) => {
   };
 
   const handleChange = (fieldName, validators, e) => {
-    let fields = fieldsState;
+    let fields = { ...fieldsState };
     let newValue = e.target.value;
     fields[fieldName] = newValue;
-    let fieldsUpdate = { ...fields };
     const newValueCutSpace = newValue.trim();
-    setFieldsState(fieldsUpdate);
-
+    setFieldsState(fields);
     handleValidation(fieldName, validators, newValueCutSpace);
   };
 
   const allReset = () => {
-    setFieldsState({});
-    setErrors({});
+    setFieldsState(initialState);
+    setErrors(initialStateError);
   };
 
   return (
@@ -235,7 +214,7 @@ const Form = (props) => {
           className='reset'
           text='Отмена'
           type='reset'
-          onClick={() => allReset}
+          onClick={allReset}
         />
         <Button
           className='save'
