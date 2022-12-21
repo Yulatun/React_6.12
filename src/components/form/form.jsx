@@ -40,6 +40,11 @@ const Form = (props) => {
   const maxNumberOfCharactersInTextArea = 600;
   const handleValidation = (fieldName, validators, newValue) => {
     let error = { ...errors };
+    error[fieldName] = handleFieldValidation(validators, newValue);
+    setErrors(error);
+  };
+
+  const handleFieldValidation = (validators, newValue) => {
     let validationResult = '';
     for (let i = 0; i < validators.length; i++) {
       const v = validators[i];
@@ -48,17 +53,26 @@ const Form = (props) => {
         break;
       }
     }
-    error[fieldName] = validationResult;
-    setErrors(error);
+    return validationResult;
+  };
+
+  const handleAllFieldsValidation = () => {
+    let allError = { ...errors };
+    const allFieldsName = Object.keys(validation);
+    allFieldsName.forEach((fieldName) => {
+      allError[fieldName] = handleFieldValidation(
+        validation[fieldName],
+        fieldsState[fieldName]
+      );
+    });
+    setErrors(allError);
+    return allError;
   };
 
   const contactSubmit = (e) => {
     e.preventDefault();
-    const allFieldsName = Object.keys(validation);
-    allFieldsName.forEach((name) =>
-      handleValidation(name, validation[name], fieldsState[name].trim())
-    );
-    if (Object.values(errors).every((e) => !e)) {
+    let allError = handleAllFieldsValidation();
+    if (Object.values(allError).every((e) => !e)) {
       props.onChangePage(fieldsState);
     }
   };
