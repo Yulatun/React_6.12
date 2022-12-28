@@ -21,7 +21,7 @@ const TodoForm = ({ addTodo }) => {
         value={newTaskName}
         placeholder='новая задача..'
         className='input-form'
-      ></Input>
+      />
       <Button
         type='submit'
         onClick={onSubmitTask}

@@ -12,11 +12,11 @@ const TodoList = ({ allTodos }) => {
       <div className='main-todoList'>
         <ul className='list'>
           {allTodos.map((t) => {
-            return <TodoItem key={t.id} value={t.content} id={t.id}></TodoItem>;
+            return <TodoItem key={t.id} value={t.content} id={t.id} />;
           })}
         </ul>
         <div className='form-new-task'>
-          <TodoForm></TodoForm>
+          <TodoForm />
         </div>
       </div>
     </>

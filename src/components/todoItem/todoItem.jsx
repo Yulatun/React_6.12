@@ -10,7 +10,6 @@ import './todoItem.css';
 const TodoItem = ({ value, deleteTodo, id, editTodo }) => {
   const [editTaskName, setEditTaskName] = useState(value);
   const [isEdit, setIsEdit] = useState(false);
-  
   const handleChange = (e) => {
     setEditTaskName(e.target.value);
   };
@@ -23,34 +22,32 @@ const TodoItem = ({ value, deleteTodo, id, editTodo }) => {
   };
   const styleForIcons = { fontSize: '1.5em', cursor: 'pointer' };
 
-  if (isEdit) {
-    return (
-      <>
-        <Input
-          onChange={handleChange}
-          value={editTaskName}
-          className='input-edit-todo'
-        />
-        <MdOutlineDoneOutline
-          style={styleForIcons}
-          onClick={() => finishEditTodoItem()}
-        />
-      </>
-    );
-  } else {
-    return (
-      <div className='todo-list-box'>
-        <li>{value}</li>
+  return isEdit ? (
+    <>
+      <Input
+        onChange={handleChange}
+        value={editTaskName}
+        className='input-edit-todo'
+      />
+      <MdOutlineDoneOutline
+        style={styleForIcons}
+        onClick={() => finishEditTodoItem()}
+      />
+    </>
+  ) : (
+    <>
+      <li>
+        {value}
         <div className='icons-box'>
           <RiDeleteBinLine
             style={styleForIcons}
             onClick={() => deleteTodo(id)}
-          ></RiDeleteBinLine>
-          <FiEdit style={styleForIcons} onClick={() => editTodoItem()}></FiEdit>
+          />
+          <FiEdit style={styleForIcons} onClick={() => editTodoItem()} />
         </div>
-      </div>
-    );
-  }
+      </li>
+    </>
+  );
 };
 
 export default connect(null, { deleteTodo, editTodo })(TodoItem);

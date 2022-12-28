@@ -15,12 +15,12 @@ const Login = ({ submitLogin }) => {
     setSubmit(true);
   };
   const handleChange = (e) => {
-    setUserName(e.target.value);
+    setUserName(e.target.value.trim());
   };
 
   return (
     <>
-      {isSubmit && <Navigate to='/todolist'></Navigate>}
+      {isSubmit && <Navigate to='/todolist'/>}
       <div className='login-container'>
         <Input
           title='Введите ваше имя:'
@@ -28,7 +28,7 @@ const Login = ({ submitLogin }) => {
           value={userName}
           onChange={handleChange}
           className='input-form'
-        ></Input>{' '}
+        />
         <Button
           type='submit'
           onClick={onSubmitName}
