@@ -4,7 +4,19 @@ import TodoForm from '../todoForm/todoForm';
 import TodoItem from '../todoItem/todoItem';
 import './todoList.css';
 
-const TodoList = ({ allTodos }) => {
+type TodoListProps = {
+  allTodos: Array<Todo>,
+}
+type Todo = {
+  id: string,
+  content: string
+}
+
+type mapStateToPropsProps = {
+  state: Object,
+}
+
+const TodoList = ({ allTodos }: TodoListProps) => {
   const numberAllTodos = allTodos.length;
   return (
     <>
@@ -12,18 +24,18 @@ const TodoList = ({ allTodos }) => {
       <div className='main-todoList'>
         <ul className='list'>
           {allTodos.map((t) => {
-            return <TodoItem key={t.id} value={t.content} id={t.id}></TodoItem>;
+            return <TodoItem key={t.id} value={t.content} id={t.id}/>;
           })}
         </ul>
         <div className='form-new-task'>
-          <TodoForm></TodoForm>
+          <TodoForm/>
         </div>
       </div>
     </>
   );
 };
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state: mapStateToPropsProps) => {
   const allTodos = getTodos(state);
   return { allTodos };
 };

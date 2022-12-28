@@ -4,6 +4,8 @@ const initialState = {
   login: 'Гость',
 };
 
+
+
 export default function (state = initialState, action) {
   switch (action.type) {
     case PROVIDE_LOGIN: {

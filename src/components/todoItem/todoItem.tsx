@@ -7,11 +7,18 @@ import { RiDeleteBinLine } from 'react-icons/ri';
 import { MdOutlineDoneOutline } from 'react-icons/md';
 import './todoItem.css';
 
-const TodoItem = ({ value, deleteTodo, id, editTodo }) => {
+type TodoItemProps = {
+  value: string,
+  deleteTodo: Function,
+  id: string,
+  editTodo: Function
+}
+
+const TodoItem = ({ value, deleteTodo, id, editTodo }: TodoItemProps) => {
   const [editTaskName, setEditTaskName] = useState(value);
   const [isEdit, setIsEdit] = useState(false);
-  
-  const handleChange = (e) => {
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setEditTaskName(e.target.value);
   };
   const editTodoItem = () => {
@@ -45,8 +52,8 @@ const TodoItem = ({ value, deleteTodo, id, editTodo }) => {
           <RiDeleteBinLine
             style={styleForIcons}
             onClick={() => deleteTodo(id)}
-          ></RiDeleteBinLine>
-          <FiEdit style={styleForIcons} onClick={() => editTodoItem()}></FiEdit>
+          />
+          <FiEdit style={styleForIcons} onClick={() => editTodoItem()} />
         </div>
       </div>
     );

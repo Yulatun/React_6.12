@@ -4,9 +4,13 @@ import Button from '../button/button';
 import { connect } from 'react-redux';
 import { addTodo } from '../../redux/actions';
 
-const TodoForm = ({ addTodo }) => {
+type TodoFormProps = {
+  addTodo: Function,
+}
+
+const TodoForm = ({ addTodo }: TodoFormProps) => {
   const [newTaskName, setNewTaskName] = useState('');
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setNewTaskName(e.target.value);
   };
   const onSubmitTask = () => {
@@ -21,7 +25,7 @@ const TodoForm = ({ addTodo }) => {
         value={newTaskName}
         placeholder='новая задача..'
         className='input-form'
-      ></Input>
+     />
       <Button
         type='submit'
         onClick={onSubmitTask}

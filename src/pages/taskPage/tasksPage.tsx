@@ -7,7 +7,14 @@ import TodoList from '../../components/todoList/todoList';
 import Button from '../../components/button/button';
 import './taskPage.css';
 
-const TasksPage = ({ userName }) => {
+type TasksPageProps = {
+  userName: string
+}
+type mapStateToPropsProps = {
+  state: object
+}
+
+const TasksPage = ({ userName }: TasksPageProps) => {
   const [useSubmit, setSubmit] = useState(false);
   const toLoginPage = () => {
     setSubmit(true);
@@ -18,8 +25,8 @@ const TasksPage = ({ userName }) => {
       <Heading
         text={`добро пожаловать ${userName}`}
         className='main-head'
-      ></Heading>
-      <TodoList></TodoList>
+      />
+      <TodoList />
       {useSubmit && <Navigate to='/'></Navigate>}
       <Button
         type='submit'
@@ -30,7 +37,7 @@ const TasksPage = ({ userName }) => {
   );
 };
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state: mapStateToPropsProps) => {
   const userName = getLogin(state);
   return { userName };
 };
