@@ -7,7 +7,6 @@
   border: solid #f0f0f0;
   padding-left: 2%;
 }
-
 .input-form:focus {
   outline: none;
 }
@@ -21,5 +20,7 @@
   margin-bottom: 2%;
   border: solid #f0f0f0;
   padding-left: 2%;
-
+}
+.input-edit-todo:focus {
+  outline: none;
 }
