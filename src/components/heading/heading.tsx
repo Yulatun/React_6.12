@@ -1,6 +1,6 @@
 import './heading.css';
 
-type HeadingProps = {
+interface HeadingProps {
   text: string,
   className: string,
 }

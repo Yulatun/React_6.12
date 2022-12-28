@@ -1,8 +1,10 @@
-import { ADD_TODO, DELETE_TODO, EDIT_TODO, PROVIDE_LOGIN } from './actionTypes';
+import { AnyAction } from 'redux'
+
+import { ADD_TODO, DELETE_TODO, EDIT_TODO, ProvideLoginAction, PROVIDE_LOGIN } from './actionTypes';
 
 let nextTodoId = 0;
 
-export const addTodo = (content:string) => ({
+export const addTodo = (content: string): AnyAction => ({
   type: ADD_TODO,
   payload: {
     id: ++nextTodoId,
@@ -20,7 +22,7 @@ export const editTodo = (id: string, editContent:string) => ({
   payload: { id, editContent },
 });
 
-export const submitLogin = (name: string) => ({
+export const submitLogin = (name: string): ProvideLoginAction => ({
   type: PROVIDE_LOGIN,
   payload: { name },
 });

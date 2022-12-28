@@ -7,7 +7,7 @@ import { RiDeleteBinLine } from 'react-icons/ri';
 import { MdOutlineDoneOutline } from 'react-icons/md';
 import './todoItem.css';
 
-type TodoItemProps = {
+interface TodoItemProps  {
   value: string,
   deleteTodo: Function,
   id: string,

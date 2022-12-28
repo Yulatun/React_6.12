@@ -1,17 +1,14 @@
 import { Navigate } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { getLogin } from '../../redux/selectors';
+import { getLogin, Store } from '../../redux/selectors';
 import { useState } from 'react';
 import Heading from '../../components/heading/heading';
 import TodoList from '../../components/todoList/todoList';
 import Button from '../../components/button/button';
 import './taskPage.css';
 
-type TasksPageProps = {
+interface TasksPageProps {
   userName: string
-}
-type mapStateToPropsProps = {
-  state: object
 }
 
 const TasksPage = ({ userName }: TasksPageProps) => {
@@ -31,14 +28,14 @@ const TasksPage = ({ userName }: TasksPageProps) => {
       <Button
         type='submit'
         onClick={toLoginPage}
-        text='вернутся на Login Page'
+        text='вернуться на Login Page'
       />
     </div>
   );
 };
 
-const mapStateToProps = (state: mapStateToPropsProps) => {
-  const userName = getLogin(state);
+const mapStateToProps = (state: Store) => {
+  const userName: string = getLogin(state);
   return { userName };
 };
 

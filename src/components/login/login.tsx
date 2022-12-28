@@ -6,7 +6,7 @@ import { submitLogin } from '../../redux/actions';
 import { connect } from 'react-redux';
 import './login.css';
 
-type LoginProps = {
+interface LoginProps {
   submitLogin: Function;
 };
 

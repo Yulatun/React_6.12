@@ -1,7 +1,6 @@
 import React, { ChangeEventHandler } from 'react'
 import './input.css';
-
-type InputProps = {
+interface InputProps {
   text?: string,
   className: string,
   type?: string,
@@ -12,7 +11,7 @@ type InputProps = {
   value: string
 }
 
-const Input = ({ htmlFor, title, type, placeholder, onChange, className, value }:InputProps) => {
+const Input = ({ htmlFor, title, type, placeholder, onChange, className, value }: InputProps) => {
   return (
     <>
       <label htmlFor={htmlFor}>{title}</label>

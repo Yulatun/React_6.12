@@ -4,7 +4,7 @@ import Button from '../button/button';
 import { connect } from 'react-redux';
 import { addTodo } from '../../redux/actions';
 
-type TodoFormProps = {
+interface TodoFormProps  {
   addTodo: Function,
 }
 
