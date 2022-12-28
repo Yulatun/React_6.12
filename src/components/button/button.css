@@ -9,11 +9,25 @@
 }
 
 .save {
-  width: 150px;
+  width: 100px;
   height: 40px;
   border-radius: 5px;
   border: solid #f0f0f0;
 }
 .save:hover {
+  background-color: #b0b0b0;
+}
+
+
+.submit-login{
+  width: 200px;
+  height: 40px;
+  border-radius: 5px;
+  border: solid #f0f0f0;
+  margin-left: 5%;
+  margin-bottom: 2%;
+}
+
+.submit-login:hover {
   background-color: #b0b0b0;
 }
