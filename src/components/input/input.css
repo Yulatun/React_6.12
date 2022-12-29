@@ -1,12 +1,26 @@
 .input-form {
-  height: 30px;
+  width: 200px;
+  height: 35px;
   border-radius: 5px;
-  margin-top: 3%;
+  margin-left: 3%;
   margin-bottom: 2%;
-  justify-content: space-around;
   border: solid #f0f0f0;
+  padding-left: 2%;
+}
+.input-form:focus {
+  outline: none;
 }
 
-.input-form:focus {
+.input-edit-todo{
+  width: 370px;
+  height: 35px;
+  border-radius: 5px;
+  margin-left: 3%;
+  margin-right: 3%;
+  margin-bottom: 2%;
+  border: solid #f0f0f0;
+  padding-left: 2%;
+}
+.input-edit-todo:focus {
   outline: none;
 }
