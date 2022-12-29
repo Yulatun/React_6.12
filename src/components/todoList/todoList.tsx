@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { StateTodos, Todo } from '../../redux/reducers/todos';
+import { Todo } from '../../redux/reducers/todos';
 import { getTodos, Store } from '../../redux/selectors';
 import TodoForm from '../todoForm/todoForm';
 import TodoItem from '../todoItem/todoItem';
@@ -17,11 +17,11 @@ const TodoList = ({ allTodos }: TodoListProps) => {
       <div className='main-todoList'>
         <ul className='list'>
           {allTodos.map((t) => {
-            return <TodoItem key={t.id} value={t.content} id={t.id}/>;
+            return <TodoItem key={t.id} value={t.content} id={t.id} />;
           })}
         </ul>
         <div className='form-new-task'>
-          <TodoForm/>
+          <TodoForm />
         </div>
       </div>
     </>

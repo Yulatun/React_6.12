@@ -2,8 +2,8 @@ import { StateLogin } from "./reducers/login";
 import { StateTodos, Todo } from "./reducers/todos";
 
 export interface Store {
-  todos:StateTodos,
-  login:StateLogin
+  todos: StateTodos,
+  login: StateLogin
 }
 
 export const getTodosState = (store: Store) => store.todos;

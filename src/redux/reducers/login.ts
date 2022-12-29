@@ -5,9 +5,9 @@ const initialState = {
 };
 export interface StateLogin {
   login: string
- }
+}
 
-export default function (state: StateLogin = initialState, action: ProvideLoginAction) {
+export default function loginReducer(state: StateLogin = initialState, action: ProvideLoginAction) {
   switch (action.type) {
     case PROVIDE_LOGIN: {
       const name: string = action.payload.name;
@@ -20,4 +20,3 @@ export default function (state: StateLogin = initialState, action: ProvideLoginA
       return state;
   }
 }
-
