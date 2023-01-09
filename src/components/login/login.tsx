@@ -6,7 +6,11 @@ import { submitLogin } from '../../redux/actions';
 import { connect } from 'react-redux';
 import './login.css';
 
-const Login = ({ submitLogin }) => {
+interface LoginProps {
+  submitLogin: Function;
+};
+
+const Login = ({ submitLogin }: LoginProps) => {
   const [isSubmit, setSubmit] = useState(false);
   const [userName, setUserName] = useState('');
 
@@ -14,7 +18,7 @@ const Login = ({ submitLogin }) => {
     submitLogin(userName);
     setSubmit(true);
   };
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setUserName(e.target.value.trim());
   };
 
@@ -28,7 +32,7 @@ const Login = ({ submitLogin }) => {
           value={userName}
           onChange={handleChange}
           className='input-form'
-        />
+       />
         <Button
           type='submit'
           onClick={onSubmitName}

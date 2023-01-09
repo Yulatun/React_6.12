@@ -1,10 +1,15 @@
 import { connect } from 'react-redux';
-import { getTodos } from '../../redux/selectors';
+import { Todo } from '../../redux/reducers/todos';
+import { getTodos, Store } from '../../redux/selectors';
 import TodoForm from '../todoForm/todoForm';
 import TodoItem from '../todoItem/todoItem';
 import './todoList.css';
 
-const TodoList = ({ allTodos }) => {
+interface TodoListProps {
+  allTodos: Array<Todo>;
+}
+
+const TodoList = ({ allTodos }: TodoListProps) => {
   const numberAllTodos = allTodos.length;
   return (
     <>
@@ -23,8 +28,8 @@ const TodoList = ({ allTodos }) => {
   );
 };
 
-const mapStateToProps = (state) => {
-  const allTodos = getTodos(state);
+const mapStateToProps = (state: Store) => {
+  const allTodos: Array<Todo> = getTodos(state);
   return { allTodos };
 };
 
