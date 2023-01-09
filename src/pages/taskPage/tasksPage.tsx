@@ -19,12 +19,9 @@ const TasksPage = ({ userName }: TasksPageProps) => {
 
   return (
     <div className='main-task-page'>
-      <Heading
-        text={`добро пожаловать ${userName}`}
-        className='main-head'
-      />
+      <Heading text={`Добро пожаловать ${userName}`} className='main-head' />
       <TodoList />
-      {useSubmit && <Navigate to='/'></Navigate>}
+      {useSubmit && <Navigate to='/' />}
       <Button
         type='submit'
         onClick={toLoginPage}

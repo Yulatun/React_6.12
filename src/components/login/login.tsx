@@ -19,7 +19,7 @@ const Login = ({ submitLogin }: LoginProps) => {
     setSubmit(true);
   };
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setUserName(e.target.value);
+    setUserName(e.target.value.trim());
   };
 
   return (

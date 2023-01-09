@@ -11,6 +11,7 @@ li {
   align-items: center;
   padding-left: 2%;
   overflow: scroll;
+  justify-content: space-between;
 }
 
 .todo-list-box {
