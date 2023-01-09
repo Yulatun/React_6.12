@@ -1,28 +1,44 @@
-import { ADD_TODO, DELETE_TODO, EDIT_TODO } from '../actionTypes';
+import { ADD_TODO, DELETE_TODO, EDIT_TODO, AddTodoAction, DeleteTodoAction, EditTodoAction } from '../actionTypes';
 
 const initialState = {
   allIds: [],
-  byIds: {},
+  byIds: {
+    id: {
+      content: ''
+    },
+  }
 };
+export interface StateTodos {
+  allIds: Array<string>,
+  byIds: {
+    [id: string]: {
+      content: string
+    }
+  }
+}
+export interface Todo {
+  id: string;
+  content: string;
+}
 
-export default function (state = initialState, action) {
+export default function todoReducer(state: StateTodos = initialState, action: AddTodoAction | DeleteTodoAction | EditTodoAction) {
   switch (action.type) {
     case ADD_TODO: {
-      const { id, content } = action.payload;
+      const id = new Date().valueOf().toString();
+      const { content } = action.payload;
       return {
         ...state,
         allIds: [...state.allIds, id],
         byIds: {
           ...state.byIds,
           [id]: {
-            content,
-            completed: false,
+            content
           },
         },
       };
     }
     case DELETE_TODO: {
-      const { id } = action.payload;
+      const id: string = action.payload.id;
       const allIdsAfterDeleteId = state.allIds.filter(
         (todosId) => todosId !== id
       );
